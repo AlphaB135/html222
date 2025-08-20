@@ -10,9 +10,8 @@
 <body class="font-sans bg-gradient-to-br from-violet-50 via-white to-fuchsia-50">
     <!-- Navigation -->
     <nav class="bg-white/95 backdrop-blur-lg border-b border-violet-100 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-8">
             <div class="flex justify-between items-center h-16">
-
                 <div class="flex items-center gap-3">
                     <div class="bg-gradient-to-r from-[#F472B6] to-[#60A5FA] p-2.5 rounded-2xl shadow-lg">
                         <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -22,14 +21,13 @@
                     <span class="text-xl font-bold bg-gradient-to-r from-[#F472B6] to-[#60A5FA] bg-clip-text text-transparent">WanderMate</span>
                 </div>
 
-
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="flex items-center space-x-8">
                     <a href="index.html" class="text-gray-700 hover:text-violet-600 transition-colors font-medium">หน้าแรก</a>
                     <a href="find-buddies.html" class="text-violet-600 font-medium">หาเพื่อนเที่ยว</a>
                     <a href="become-buddy.html" class="text-gray-700 hover:text-violet-600 transition-colors font-medium">เป็นเพื่อนเที่ยว</a>
                     <a href="dashboard.html" class="text-gray-700 hover:text-violet-600 transition-colors font-medium">แดชบอร์ด</a>
                 </div>
-                <div class="hidden md:flex items-center space-x-4">
+                <div class="flex items-center space-x-4">
                     <button class="text-gray-700 hover:bg-violet-50 hover:text-violet-700 px-3 py-2 rounded-lg transition-colors">เข้าสู่ระบบ</button>
                     <button class="bg-gradient-to-br from-[#EC4899] to-[#3B82F6] hover:from-[#EC4899] hover:to-[#3B82F6] text-white px-4 py-2 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">สมัครสมาชิก</button>
                 </div>
@@ -38,16 +36,16 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <div class="min-h-screen py-8 px-8">
         <div class="max-w-7xl mx-auto">
             <!-- Header -->
             <div class="text-center mb-12">
-                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">หาเพื่อนเที่ยวที่เหมาะกับคุณ</h1>
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">หาเพื่อนเที่ยวที่เหมาะกับคุณ</h1>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-4 gap-8">
                 <!-- Filters Sidebar -->
-                <div class="lg:col-span-1">
+                <div class="col-span-1">
                     <div class="bg-white border-0 shadow-lg rounded-2xl sticky top-24 p-6">
                         <div class="flex items-center gap-2 mb-6">
                             <svg class="h-5 w-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,8 +122,8 @@
                 </div>
 
                 <!-- Buddies Grid -->
-                <div class="lg:col-span-3">
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div class="col-span-3">
+                    <div class="grid grid-cols-3 gap-6">
                         <!-- Buddy Card 1 -->
                         <div class="bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden hover-lift">
                             <div class="relative">
@@ -313,5 +311,30 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load footer using XMLHttpRequest
+        function loadFooter() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'components/footer.html', true);
+            xhr.onreadystatechange = function() {
+                if (this.readyState !== 4) return;
+                if (this.status !== 200) {
+                    console.error('Error loading footer:', this.status, this.statusText);
+                    return;
+                }
+                document.getElementById('footer-placeholder').innerHTML = this.responseText;
+            };
+            xhr.onerror = function() {
+                console.error('Error loading footer');
+            };
+            xhr.send();
+        }
+        loadFooter();
+    </script>
 </body>
 </html>

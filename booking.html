@@ -10,7 +10,7 @@
 <body class="font-sans bg-gradient-to-br from-violet-50 via-white to-fuchsia-50">
     <!-- Navigation -->
     <nav class="bg-white/95 backdrop-blur-lg border-b border-violet-100 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center gap-3">
                     <div class="bg-gradient-to-r from-[#F472B6] to-[#60A5FA] p-2.5 rounded-2xl shadow-lg">
@@ -20,7 +20,7 @@
                     </div>
                     <span class="text-xl font-bold bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">WanderMate</span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="flex items-center space-x-8">
                     <a href="index.html" class="text-gray-700 hover:text-violet-600 transition-colors font-medium">หน้าแรก</a>
                     <a href="find-buddies.html" class="text-gray-700 hover:text-violet-600 transition-colors font-medium">หาเพื่อนเที่ยว</a>
                     <a href="become-buddy.html" class="text-gray-700 hover:text-violet-600 transition-colors font-medium">เป็นเพื่อนเที่ยว</a>
@@ -31,15 +31,15 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <div class="min-h-screen py-8 px-8">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-8">
-                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">จองเพื่อนเที่ยว</h1>
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">จองเพื่อนเที่ยว</h1>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-3 gap-8">
                 <!-- Booking Form -->
-                <div class="lg:col-span-2 space-y-6">
+                <div class="col-span-2 space-y-6">
                     <!-- Buddy Info -->
                     <div class="bg-white border-0 shadow-lg rounded-2xl p-6">
                         <div class="flex items-center gap-4">
@@ -136,7 +136,7 @@
                 </div>
 
                 <!-- Booking Summary -->
-                <div class="lg:col-span-1">
+                <div class="col-span-1">
                     <div class="bg-white border-0 shadow-lg rounded-2xl sticky top-24 p-6">
                         <h2 class="text-xl font-semibold text-gray-900 mb-4">สรุปราคา</h2>
                         <div class="space-y-4">
@@ -189,7 +189,32 @@
                     </div>
                 </div>
             </div>
-        </div>
+                </div>
     </div>
+
+    <!-- Footer -->
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load footer using XMLHttpRequest
+        function loadFooter() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'components/footer.html', true);
+            xhr.onreadystatechange = function() {
+                if (this.readyState !== 4) return;
+                if (this.status !== 200) {
+                    console.error('Error loading footer:', this.status, this.statusText);
+                    return;
+                }
+                document.getElementById('footer-placeholder').innerHTML = this.responseText;
+            };
+            xhr.onerror = function() {
+                console.error('Error loading footer');
+            };
+            xhr.send();
+        }
+        loadFooter();
+    </script>
 </body>
 </html>
